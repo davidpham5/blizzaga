@@ -10,9 +10,27 @@ export default class MyCounter extends LitElement {
         padding: 16px;
         max-width: 800px;
       }
+      .button-container {
+        display: flex;
+      }
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        border: none;
+        background: #eee;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 4px;
+        margin-right: 4px;
+      }
     `
   }
 
+  static properties = {
+    count: { state: false }
+  }
   // set up properties
   // you can think of static as a private method that belongs to the class
   static get properties() {
@@ -43,8 +61,10 @@ export default class MyCounter extends LitElement {
   render() {
     return html`
       <h1>${this.sayHello(this.name)}</h1>
-      <button @click=${this._plus}>➕</button>
-      <button @click=${this._minus}>➖</button>
+      <div class="button-container">
+        <button @click=${this._plus}>➕</button>
+        <button @click=${this._minus}>➖</button>
+      </div>
       <div>You've clicked ${this.count} times</div>
     `
   }
@@ -65,5 +85,5 @@ export default class MyCounter extends LitElement {
     return `${this.greeting}, ${this.name}`
   }
 }
-// add lit's custom element decorator
+// add lit's custom element
 customElements.define('my-counter', MyCounter);
