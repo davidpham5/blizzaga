@@ -43,15 +43,21 @@ export default class MyCounter extends LitElement {
   render() {
     return html`
       <h1>${this.sayHello(this.name)}</h1>
-      <button @click=${this._onClick}>Click Me</button>
+      <button @click=${this._plus}>➕</button>
+      <button @click=${this._minus}>➖</button>
       <div>You've clicked ${this.count} times</div>
     `
   }
 
   // set up event handlers
-  _onClick() {
+  _plus() {
     this.count++
-    this.dispatchEvent(new CustomEvent('count-changed'))
+    this.dispatchEvent(new CustomEvent('count-increased'))
+  }
+
+  _minus() {
+    this.count--
+    this.dispatchEvent(new CustomEvent('count-decreased'))
   }
 
   // define sayHello()
