@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="good-stuff"></div>
+
+  <script type="module">
+    import { html, render } from 'lit';
+    import '../data-privacy-example.js';
+    const stateOfThings = `You won't break my soul`
+    render(
+      html`
+        <data-privacy-example .song=${stateOfThings}>
+          The Lavender Haze is haunting
+        </data-privacy-example>
+      `,
+      document.querySelector('#good-stuff')
+    )
+  </script>
+</body>
+</html>
