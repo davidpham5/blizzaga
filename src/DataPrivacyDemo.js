@@ -134,11 +134,11 @@ export class DataPrivacyDemo extends LitElement {
   constructor() {
     super();
     this.header = 'Hey there';
-    this.counter = 5;
+    this.counter = 0;
     const shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(template.content.cloneNode(true));
-    const root = shadowRoot.getElementById('root');
-    console.log({ root });
+    const footer = shadowRoot.getElementById('standard-footer');
+    console.log({ footer });
   }
 
   connectedCallback() {
@@ -146,10 +146,7 @@ export class DataPrivacyDemo extends LitElement {
     super.connectedCallback();
   }
 
-  firstUpdated() {
-    this.root = this.renderRoot.querySelector('#root');
-    console.log({ root: this.root });
-  }
+  firstUpdated() {}
 
   __increment() {
     this.counter += 1;
