@@ -14,19 +14,35 @@
 </head>
 <body>
   <div id="demo"></div>
+  <div id="demo2"></div>
 
   <script type="module">
     import { html, render } from 'lit';
-    import '../data-privacy-demo.js';
-
+    import '../data-privacy-component.js';
+    import '../data-privacy-example.js';
     const title = 'Demonstrating the magic of a web component';
     render(
       html`
-        <data-privacy-demo .title=${title}>
+        <data-privacy-component .title=${title}>
           some light-dom
-        </data-privacy-demo>
+        </data-privacy-component>
       `,
       document.querySelector('#demo')
+    );
+  </script>
+
+  <script type="module">
+    import { html, render } from 'lit';
+    import '../data-privacy-example.js';
+    const song = 'Cuff it'
+
+    render(
+      html`
+        <data-privacy-example .song=${song}>
+          some light-dom
+        </data-privacy-example>
+      `,
+      document.querySelector('#demo2')
     );
   </script>
 </body>

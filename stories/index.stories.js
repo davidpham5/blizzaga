@@ -1,9 +1,9 @@
 import { html } from 'lit';
-import '../data-privacy-demo.js';
+import '../data-privacy-component.js';
 
 export default {
-  title: 'DataPrivacyDemo',
-  component: 'data-privacy-demo',
+  title: 'DataPrivacyComponent',
+  component: 'data-privacy-component',
   argTypes: {
     title: { control: 'text' },
     counter: { control: 'number' },
@@ -13,13 +13,13 @@ export default {
 
 function Template({ title = 'Hello world', counter = 5, textColor, slot }) {
   return html`
-    <data-privacy-demo
-      style="--data-privacy-demo-text-color: ${textColor || 'black'}"
+    <data-privacy-component
+      style="--data-privacy-component-text-color: ${textColor || 'black'}"
       .title=${title}
       .counter=${counter}
     >
       ${slot}
-    </data-privacy-demo>
+    </data-privacy-component>
   `;
 }
 

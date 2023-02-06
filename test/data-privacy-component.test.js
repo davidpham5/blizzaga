@@ -1,18 +1,22 @@
 import { html } from 'lit';
 import { fixture, expect } from '@open-wc/testing';
 
-import '../data-privacy-demo.js';
+import '../data-privacy-component.js';
 
-describe('DataPrivacyDemo', () => {
+describe('DataPrivacyComponent', () => {
   it('has a default title "Hey there" and counter 5', async () => {
-    const el = await fixture(html`<data-privacy-demo></data-privacy-demo>`);
+    const el = await fixture(
+      html`<data-privacy-component title="Hey there"></data-privacy-component>`
+    );
 
     expect(el.title).to.equal('Hey there');
     expect(el.counter).to.equal(5);
   });
 
   it('increases the counter on button click', async () => {
-    const el = await fixture(html`<data-privacy-demo></data-privacy-demo>`);
+    const el = await fixture(
+      html`<data-privacy-component></data-privacy-component>`
+    );
     el.shadowRoot.querySelector('button').click();
 
     expect(el.counter).to.equal(6);
@@ -20,14 +24,20 @@ describe('DataPrivacyDemo', () => {
 
   it('can override the title via attribute', async () => {
     const el = await fixture(
-      html`<data-privacy-demo title="attribute title"></data-privacy-demo>`
+      html`<data-privacy-component
+        title="attribute title"
+      ></data-privacy-component>`
     );
 
     expect(el.title).to.equal('attribute title');
   });
 
   it('passes the a11y audit', async () => {
-    const el = await fixture(html`<data-privacy-demo></data-privacy-demo>`);
+    const el = await fixture(
+      html`<data-privacy-component
+        title="hello world"
+      ></data-privacy-component>`
+    );
 
     await expect(el).shadowDom.to.be.accessible();
   });

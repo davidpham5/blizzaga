@@ -1,21 +1,21 @@
-# \<data-privacy-demo>
+# \<data-privacy-component>
 
 This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
 ## Installation
 
 ```bash
-npm i data-privacy-demo
+npm i data-privacy-component
 ```
 
 ## Usage
 
 ```html
 <script type="module">
-  import 'data-privacy-demo/data-privacy-demo.js';
+  import 'data-privacy-component/data-privacy-component.js';
 </script>
 
-<data-privacy-demo></data-privacy-demo>
+<data-privacy-component></data-privacy-component>
 ```
 
 ## Linting and formatting

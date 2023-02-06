@@ -9,7 +9,7 @@
   "module": "index.js",
   "exports": {
     ".": "./index.js",
-    "./data-privacy-demo.js": "./data-privacy-demo.js"
+    "./data-privacy-component.js": "./data-privacy-component.js"
   },
   "scripts": {
     "analyze": "cem analyze --litelement",

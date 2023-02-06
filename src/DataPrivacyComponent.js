@@ -1,7 +1,7 @@
 import { html, css, LitElement } from 'lit';
 import { template } from './Footers/Footer_A.js';
 
-export class DataPrivacyDemo extends LitElement {
+export class DataPrivacyComponent extends LitElement {
   static styles = css`
     :host {
       display: block;
@@ -134,7 +134,7 @@ export class DataPrivacyDemo extends LitElement {
   constructor() {
     super();
     this.header = 'Hey there';
-    this.counter = 0;
+    this.counter = 5;
     const shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(template.content.cloneNode(true));
     const footer = shadowRoot.getElementById('standard-footer');
