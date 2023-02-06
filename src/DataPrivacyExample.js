@@ -26,7 +26,7 @@ export class DataPrivacyExample extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.data = [];
-    this.loading = true;
+
     console.log(this.constructor.observedAttributes);
     if (!this.data.length) {
       this.fetchData();
@@ -34,19 +34,22 @@ export class DataPrivacyExample extends LitElement {
   }
 
   async fetchData() {
+    this.loading = true;
     const response = await fetch(
       'https://jsonplaceholder.typicode.com/todos/1'
     );
     const data = await response.json();
     this.data = data;
+    console.log(this.data);
     this.loading = false;
   }
 
   render() {
     return html`
       ${this.loading ? html`<h2>Loading...</h2>` : ''}
-      <h2>Here is some data:</h2>
-      ${this.data.map(item => html` <div>${item}</div> `)}
+      <h2>Here is some data: ${this.data.id}</h2>
+
+      ${this.data.map(item => html` <div>${item.title}</div> `)}
     `;
   }
 }
