@@ -1,1 +1,3 @@
-export { DataPrivacyComponent } from './src/DataPrivacyComponent.js';
+import { DataPrivacyComponent } from './src/DataPrivacyComponent.js';
+
+export { DataPrivacyComponent };
