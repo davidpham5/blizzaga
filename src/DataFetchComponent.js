@@ -1,7 +1,7 @@
 import { html, css, LitElement } from 'lit';
-import { templateA } from './Footers/Footer_A.js';
+import { templateB } from './Footers/Footer_B.js';
 
-export class DataPrivacyComponent extends LitElement {
+export class DataFetchComponent extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -128,42 +128,55 @@ export class DataPrivacyComponent extends LitElement {
 
   static get properties() {
     return {
-      header: { type: String },
-      counter: { type: Number },
+      data: { type: Object },
+      loading: { type: Boolean },
     };
   }
 
   constructor() {
     super();
-    this.header = 'Hey there';
-    this.counter = 5;
     const shadowRoot = this.attachShadow({ mode: 'open' });
-    shadowRoot.appendChild(templateA.content.cloneNode(true));
-    // const footer = shadowRoot.getElementById('standard-footer-A');
-    // console.log({ footer });
+    shadowRoot.appendChild(templateB.content.cloneNode(true));
+    const footer = shadowRoot.getElementById('standard-footer-B');
+    console.log({ footer });
+    this.data = {};
+
+    console.log(this.constructor.observedAttributes);
+    if (!this.data.length) {
+      this.fetchData();
+    }
   }
 
   connectedCallback() {
-    // invoked when a component is added to the document's DOM.
     super.connectedCallback();
   }
 
-  __increment() {
-    this.counter += 1;
+  async fetchData() {
+    this.loading = true;
+    try {
+      const response = await fetch(
+        'https://jsonplaceholder.typicode.com/todos/1'
+      );
+      const data = await response.json();
+      this.data = data;
+      console.log({ data });
+      this.loading = false;
+      // this.song = 'test'
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  __decrement() {
-    this.counter -= 1;
-  }
+  // attributeChangedCallback(name, oldVal, newVal) {
+
+  // }
 
   render() {
     return html`
-      <h1>${this.title}</h1>
-      <h2>
-        ${this.header} how many times can I click the button ${this.counter}!
-      </h2>
-      <button @click=${this.__increment}>increment</button>
-      <button @click=${this.__decrement}>decrement</button>
+      ${this.loading ? html`<h2>Loading...</h2>` : ''}
+      <h2>Here is some data:</h2>
+      <h3>${this.song}</h3>
+      <p>${this.data.title}</p>
     `;
   }
 }

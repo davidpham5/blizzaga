@@ -1,5 +1,5 @@
 const templateFooter = `
-  <footer id="standard-footer" class="background-white w-100 font-xxxxs font-xxxs-ns">
+  <footer id="standard-footer-A" class="background-white w-100 font-xxxxs font-xxxs-ns">
     <ul class="w-100 mw-1200 flex flex-column justify-between h-100 pt-xs pb-xs list-unstyled ma-auto pa-0 flex-ns-row gray-dark">
       <li class="flex justify-center flex-1 order-1-ns order-2">
         <a class="dib-ns db gray-dark pa-xxs pl-md pr-md" target="_blank" href="https://www.washingtonpost.com/privacy-policy/2011/11/18/gIQASIiaiN_story.html?utm_term=.98a6edd372fc" rel="noopener noreferrer">
@@ -22,5 +22,5 @@ const templateFooter = `
     </ul>
   </footer>
 `;
-export const template = document.createElement('template');
-template.innerHTML = templateFooter;
+export const templateA = document.createElement('template');
+templateA.innerHTML = templateFooter;

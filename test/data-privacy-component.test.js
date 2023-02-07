@@ -4,6 +4,7 @@ import { fixture, expect } from '@open-wc/testing';
 import { DataPrivacyComponent } from '../src/DataPrivacyComponent.js';
 
 window.customElements.define('data-privacy-component', DataPrivacyComponent);
+
 describe('DataPrivacyComponent', () => {
   it('has a default title "Hey there" and counter 5', async () => {
     const el = await fixture(
