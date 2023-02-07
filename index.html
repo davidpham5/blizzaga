@@ -20,7 +20,8 @@
 
   <script type="module">
     import { html, render } from 'lit';
-    import './data-privacy-component.js';
+    import { DataPrivacyComponent } from './src/DataPrivacyComponent.js';
+    window.customElements.define('data-privacy-component', DataPrivacyComponent);
 
     const title = 'Demonstrating the magic of a web component';
     render(
