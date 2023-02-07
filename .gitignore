@@ -17,6 +17,7 @@ data-privacy-component/node_modules/
 /.tmp/
 
 # build
+/build/
 /_site/
 /dist/
 /out-tsc/

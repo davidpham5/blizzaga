@@ -1,1 +1,3 @@
-export { DataPrivacyComponent } from './DataPrivacyComponent.js';
+import { DataPrivacyComponent } from './DataPrivacyComponent.js';
+
+window.customElements.define('data-privacy-component', DataPrivacyComponent);
