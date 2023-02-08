@@ -1,43 +1,33 @@
 <!doctype html>
 <html lang="en-GB">
-<head>
-  <meta charset="utf-8">
-  <style>
-    body {
-      color: #fafafa;
-      background-color: #333;
-    }
-    a {
-      color: #fafafa;
-    }
-  </style>
-
-</head>
-<body>
-  <div id="demo"></div>
-
-  <data-fetch-component song="cuff it"></data-fetch-component>
-
-  <script type="module">
-    import { html, render } from 'lit';
-    import { DataPrivacyComponent } from './src/DataPrivacyComponent.js';
-    window.customElements.define('data-privacy-component', DataPrivacyComponent);
-
-    const title = 'Demonstrating the magic of a web component';
-    render(
-      html`
-        <data-privacy-component .title=${title}>
-          some light-dom
-        </data-privacy-component>
-      `,
-      document.querySelector('#demo')
-    );
-  </script>
-
-
-  <script type="module">
-    import { DataFetchComponent } from './index';
-    customElements.define('data-fetch-component', DataFetchComponent);
-  </script>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body {
+        color: #fafafa;
+        background-color: #333;
+      }
+      a {
+        color: #fafafa;
+      }
+      .w-full {
+        width: 100%;
+      }
+      .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div>
+      <iframe class="w-full" src='./src/Footers/footer.html' style='border:0'></iframe>
+    </div>
+    <div class='embed-container'>
+      <iframe style="width: 100%;" srcdoc="
+        <footer-wpdp mode='width iframe srcdoc'></footer-wpdp>
+        <script type='module'>
+            import { FooterWPDP } from './src/Footers/FooterWPDP.js';
+            window.customElements.define('footer-wpdp', FooterWPDP);
+        </script>" frameborder="0">
+      </iframe>
+    </div>
+  </body>
 </html>
