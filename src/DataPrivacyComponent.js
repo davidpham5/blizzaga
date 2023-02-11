@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit';
-import { footerStyles } from './Footers/Footer.styles.js';
-import { templateA } from './Footers/Footer_A.js';
+import { footerStyles } from './_Footers/Footer.styles.js';
+import { templateA } from './_Footers/Footer_A.js';
 
 export class DataPrivacyComponent extends LitElement {
   static styles = footerStyles;

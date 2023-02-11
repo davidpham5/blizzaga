@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit';
-import { footerStyles } from './Footers/Footer.styles.js';
-import { templateB } from './Footers/Footer_B.js';
+import { footerStyles } from './_Footers/Footer.styles.js';
+import { templateB } from './_Footers/Footer_B.js';
 
 export class DataFetchComponent extends LitElement {
   static styles = footerStyles;

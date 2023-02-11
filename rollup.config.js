@@ -37,6 +37,7 @@ export default {
   ],
   output: {
     dir: 'build',
+    name: 'data-privacy-component',
   },
   preserveEntrySignatures: 'strict',
 };

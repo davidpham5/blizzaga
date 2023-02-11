@@ -1,14 +1,16 @@
 import { defineConfig } from 'vite';
-
+/** @type {import('vite').UserConfig} */
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
     outDir: 'dist',
     lib: {
-      entry: 'src/index.js',
-      format: ['es'],
-      name: 'DataPrivacyComponent',
+      entry: './index.js',
+      format: ['module'],
+      name: 'data-privacy-component',
     },
+    target: 'modules',
+    mode: 'production',
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
