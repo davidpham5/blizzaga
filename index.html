@@ -16,28 +16,37 @@
     </style>
   </head>
   <body>
-    <div>
-      <iframe class="w-full" src='./src/Footers/footer.html' style='border:0'></iframe>
-    </div>
-    <div>
+    <!-- <div>
+      <h1>iframe example</h1>
       <iframe
         style="width: 100%;"
-        srcdoc="
-        <footer-wpdp mode='with-iframe-srcdoc'></footer-wpdp>
-        <script type='module'>
-            import { FooterWPDP } from './src/Footers/FooterWPDP.js';
-            window.customElements.define('footer-wpdp', FooterWPDP);
-        </script>"
+        src="./src/footers/footer.html"
         frameborder="0">
       </iframe>
     </div>
+    <div>
+      <h1>iframe example</h1>
+      <iframe
+        style="width: 100%;"
+        srcdoc="
+        <footer-dp mode='with-iframe-srcdoc'></footer-dp>
+        <script type='module'>
+            import { FooterDP } from './index.js';
+            window.customElements.define('footer-dp', FooterDP);
+        </script>"
+        frameborder="0">
+      </iframe>
+    </div> -->
 
-
-    <footer-wpdp mode="using a script as module"></footer-wpdp>
-
+    <h1>Custom Element</h1>
+    <footer-dp mode="using a script as module"></footer-dp>
+    <footer-dp-alt mode="alt"></footer-dp-alt>
     <script type="module">
-      import { FooterWPDP } from './src/Footers/FooterWPDP.js';
-      window.customElements.define('footer-wpdp', FooterWPDP);
+      import { FooterDP, FooterDPAlt, handleFooter } from './index.js';
+
+      window.customElements.define('footer-dp', FooterDP);
+      window.customElements.define('footer-dp-alt', FooterDPAlt);
+      handleFooter();
     </script>
-    </body>
+  </body>
 </html>

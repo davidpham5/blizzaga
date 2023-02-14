@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit';
-import { footerStyles } from './_Footers/Footer.styles.js';
-import { templateA } from './_Footers/Footer_A.js';
+import { footerStyles } from './footers/footerStyles.js';
+import { templateStandard } from './footers/FooterStandard.js';
 
 export class DataPrivacyComponent extends LitElement {
   static styles = footerStyles;
@@ -17,7 +17,7 @@ export class DataPrivacyComponent extends LitElement {
     this.header = 'Hey there';
     this.counter = 5;
     const shadowRoot = this.attachShadow({ mode: 'open' });
-    shadowRoot.appendChild(templateA.content.cloneNode(true));
+    shadowRoot.appendChild(templateStandard.content.cloneNode(true));
     // const footer = shadowRoot.getElementById('standard-footer-A');
     // console.log({ footer });
   }

@@ -35,6 +35,7 @@ export default {
       patterns: ['images/**/*'],
     }),
   ],
+  // input: 'index.js',
   output: {
     dir: 'build',
     name: 'data-privacy-component',

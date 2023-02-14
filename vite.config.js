@@ -10,7 +10,7 @@ export default defineConfig({
       name: 'data-privacy-component',
     },
     target: 'modules',
-    mode: 'production',
+    mode: 'development',
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library

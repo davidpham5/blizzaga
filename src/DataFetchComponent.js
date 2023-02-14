@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit';
-import { footerStyles } from './_Footers/Footer.styles.js';
-import { templateB } from './_Footers/Footer_B.js';
+import { footerStyles } from './footers/footerStyles.js';
+import { templateAlt } from './footers/FooterAlt.js';
 
 export class DataFetchComponent extends LitElement {
   static styles = footerStyles;
@@ -16,10 +16,10 @@ export class DataFetchComponent extends LitElement {
   constructor() {
     super();
     const shadowRoot = this.attachShadow({ mode: 'open' });
-    shadowRoot.appendChild(templateB.content.cloneNode(true));
+    shadowRoot.appendChild(templateAlt.content.cloneNode(true));
 
     this.data = [];
-    console.log(this.constructor.observedAttributes);
+    // console.log(this.constructor.observedAttributes);
     if (!this.data.length) {
       this.fetchData();
     }

@@ -1,4 +1,5 @@
-import { DataPrivacyComponent } from './src/DataPrivacyComponent.js';
-import { DataFetchComponent } from './src/DataFetchComponent.js';
+import { FooterDP } from './src/footers/FooterDP.js';
+import { FooterDPAlt } from './src/footers/FooterDPAlt.js';
+import { handleFooter } from './src/footers/handleFooter.js';
 
-export { DataPrivacyComponent, DataFetchComponent };
+export { FooterDP, FooterDPAlt, handleFooter };
