@@ -1,21 +1,21 @@
-# \<data-privacy-component>
+# \<blizzaga>
 
 This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
 ## Installation
 
 ```bash
-npm i data-privacy-component
+npm i blizzaga
 ```
 
 ## Usage
 
 ```html
 <script type="module">
-  import 'data-privacy-component/data-privacy-component.js';
+  import 'blizzaga/blizzaga.js';
 </script>
 
-<data-privacy-component></data-privacy-component>
+<blizzaga></blizzaga>
 ```
 
 ## Linting and formatting

@@ -1,6 +1,11 @@
-const templateFooter = `
-  <footer id="standard-footer-B" class="background-white w-100 font-xxxxs font-xxxs-ns">
+const template = `
+  <footer id="standard-footer" class="background-white w-100 font-xxxxs font-xxxs-ns">
     <ul class="w-100 mw-1200 flex flex-column justify-between h-100 pt-xs pb-xs list-unstyled ma-auto pa-0 flex-ns-row gray-dark">
+      <li class="flex justify-center flex-1 order-1-ns order-2">
+        <a class="dib-ns db gray-dark pa-xxs pl-md pr-md" target="_blank" href="https://www.washingtonpost.com/privacy-policy/2011/11/18/gIQASIiaiN_story.html?utm_term=.98a6edd372fc" rel="noopener noreferrer">
+          Privacy Policy
+        </a>
+      </li>
       <li class="flex justify-center flex-1 order-2-ns order-1">
         <div class="flex justify-center pt-xxs pb-xxs">
           <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14.04" viewBox="0 0 18 28">
@@ -17,5 +22,5 @@ const templateFooter = `
     </ul>
   </footer>
 `;
-export const templateB = document.createElement('template');
-templateB.innerHTML = templateFooter;
+export const templateStandard = document.createElement('template');
+templateStandard.innerHTML = template;
