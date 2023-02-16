@@ -38,7 +38,7 @@ export default {
   // input: 'index.js',
   output: {
     dir: 'build',
-    name: 'data-privacy-component',
+    name: 'blizzaga-component',
   },
   preserveEntrySignatures: 'strict',
 };
