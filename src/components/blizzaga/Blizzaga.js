@@ -1,7 +1,6 @@
 import { html, css, LitElement } from 'lit';
 import { blizzagaStyles } from './blizzagaStyles.js';
-import { templateStandard } from './blizzaga.template.js';
-import { templateAlt } from './blizzaga-alt.template.js';
+import { handleTemplate } from './blizzaga-alt.template.js';
 
 export class BlizzagaComponent extends LitElement {
   static styles = [
@@ -23,18 +22,22 @@ export class BlizzagaComponent extends LitElement {
     super();
     // attach shadowRoot
     const shadowRoot = this.attachShadow({ mode: 'open' });
-    shadowRoot.appendChild(templateStandard.content.cloneNode(true));
+    const templateAlt = document.createElement('template');
+    templateAlt.innerHTML = handleTemplate(false);
+    shadowRoot.appendChild(templateAlt.content.cloneNode(true));
   }
 
   connectedCallback() {
     super.connectedCallback();
     console.log(this.mode);
-    if (this.mode === 'short') {
+    const templateAlt = document.createElement('template');
+    templateAlt.innerHTML = handleTemplate(this.mode === 'long');
+    if (this.mode === 'long') {
       this.shadowRoot.appendChild(templateAlt.content.cloneNode(true));
-      this.shadowRoot.querySelector('#standard-footer').remove(); // remove footer from constructor()
+      this.shadowRoot.querySelector('#ccpa-footer').remove(); // remove footer from constructor()
     } else {
-      this.shadowRoot.querySelector('#standard-footer').remove(); // remove footer from constructor()
-      this.shadowRoot.appendChild(templateStandard.content.cloneNode(true));
+      this.shadowRoot.querySelector('#ccpa-footer').remove(); // remove footer from constructor()
+      this.shadowRoot.appendChild(templateAlt.content.cloneNode(true));
     }
   }
 
