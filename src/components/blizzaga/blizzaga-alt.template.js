@@ -1,4 +1,4 @@
-const templateFooter = `
+const template = `
   <footer id="ccpa-footer" class="dn background-white w-100 font-xxxxs font-xxxs-ns">
     <ul class="mw-1200 flex center justify-between h-100 pt-xs pb-xs list-unstyled ma-auto pa-0 flex-column flex-ns-row gray-dark">
       <li class="flex-1 order-1-ns order-2 flex-start">
@@ -29,4 +29,4 @@ const templateFooter = `
 </footer>
 `;
 export const templateAlt = document.createElement('template');
-templateAlt.innerHTML = templateFooter;
+templateAlt.innerHTML = template;

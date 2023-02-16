@@ -1,19 +1,19 @@
 {
-  "name": "data-privacy-wc",
-  "description": "Web Component for data privacy following open-wc recommendations",
+  "name": "blizzaga",
+  "description": "Web Component for blizzaga following open-wc recommendations",
   "license": "MIT",
-  "author": "data-privacy-wc",
+  "author": "blizzaga",
   "version": "0.0.0",
   "type": "module",
   "main": "index.js",
   "module": "index.js",
   "exports": {
     ".": "./index.js",
-    "./data-privacy-component.js": "./data-privacy-component.js"
+    ".blizzaga.js": ".blizzaga.js"
   },
   "scripts": {
     "dev": "vite",
-    "build": "rollup -c --environment BUILD:production",
+    "build": "rm -r build/ && rollup -c --environment BUILD:production",
     "build:dev": "rollup -c --environment BUILD:development",
     "serve:prod": "npm run build && vite build/",
     "analyze": "cem analyze --litelement",

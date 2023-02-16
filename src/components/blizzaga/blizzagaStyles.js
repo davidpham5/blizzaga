@@ -1,6 +1,6 @@
 import { css } from 'lit';
 
-export const footerStyles = css`
+export const blizzagaStyles = css`
   :host {
     display: block;
   }

@@ -1,4 +1,4 @@
-const templateFooter = `
+const template = `
   <footer id="standard-footer" class="background-white w-100 font-xxxxs font-xxxs-ns">
     <ul class="w-100 mw-1200 flex flex-column justify-between h-100 pt-xs pb-xs list-unstyled ma-auto pa-0 flex-ns-row gray-dark">
       <li class="flex justify-center flex-1 order-1-ns order-2">
@@ -23,4 +23,4 @@ const templateFooter = `
   </footer>
 `;
 export const templateStandard = document.createElement('template');
-templateStandard.innerHTML = templateFooter;
+templateStandard.innerHTML = template;

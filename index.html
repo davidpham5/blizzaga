@@ -18,35 +18,33 @@
   <body>
     <!-- <div>
       <h1>iframe example</h1>
-      <iframe
-        style="width: 100%;"
-        src="./src/footers/footer.html"
-        frameborder="0">
-      </iframe>
     </div>
     <div>
       <h1>iframe example</h1>
       <iframe
         style="width: 100%;"
         srcdoc="
-        <footer-dp mode='with-iframe-srcdoc'></footer-dp>
+        <blizzaga mode='with-iframe-srcdoc'></blizzaga>
         <script type='module'>
-            import { FooterDP } from './index.js';
-            window.customElements.define('footer-dp', FooterDP);
+            import { blizzaga } from './index.js';
+            window.customElements.define('blizzaga', blizzaga);
         </script>"
         frameborder="0">
       </iframe>
     </div> -->
 
     <h1>Custom Element</h1>
-    <footer-dp mode="using a script as module"></footer-dp>
-    <footer-dp-alt mode="alt"></footer-dp-alt>
-    <script type="module">
-      import { FooterDP, FooterDPAlt, handleFooter } from './index.js';
+    <blizzaga-component mode="long"></blizzaga-component>
 
-      window.customElements.define('footer-dp', FooterDP);
-      window.customElements.define('footer-dp-alt', FooterDPAlt);
-      handleFooter();
+    <div id="root"></div>
+    <script type="module">
+      import { BlizzagaComponent, handleBlizzaga } from './index.js';
+      customElements.define('blizzaga-component', BlizzagaComponent);
+
+      handleBlizzaga();
+      document.querySelector('#root').innerHTML = `
+        <blizzaga-component mode="short"></blizzaga-component>
+      `;
     </script>
   </body>
 </html>
