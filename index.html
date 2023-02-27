@@ -16,27 +16,26 @@
     </style>
   </head>
   <body>
-    <!-- <div>
-      <h1>iframe example</h1>
-    </div>
+
     <div>
       <h1>iframe example</h1>
       <iframe
         style="width: 100%;"
         srcdoc="
-        <blizzaga mode='with-iframe-srcdoc'></blizzaga>
+        <blizzaga-component mode='short'></blizzaga-component>
         <script type='module'>
-            import { blizzaga } from './index.js';
-            window.customElements.define('blizzaga', blizzaga);
-        </script>"
+            import { BlizzagaComponent } from './index.js';
+            window.customElements.define('blizzaga-component', BlizzagaComponent);
+        </script>
+        "
         frameborder="0">
       </iframe>
-    </div> -->
+    </div>
 
-    <h1>Custom Element</h1>
-    <blizzaga-component mode="long"></blizzaga-component>
+    <!-- <h1>Custom Element</h1>
+    <blizzaga-component mode="long"></blizzaga-component> -->
 
-    <div id="root"></div>
+    <!-- <div id="root"></div>
     <script type="module">
       import { BlizzagaComponent, handleBlizzaga } from './index.js';
       customElements.define('blizzaga-component', BlizzagaComponent);
@@ -45,6 +44,35 @@
       document.querySelector('#root').innerHTML = `
         <blizzaga-component mode="short"></blizzaga-component>
       `;
+    </script> -->
+    <div id="preexisting-footer"></div>
+    <!-- <iframe class="w-full" srcdoc='
+      <script type="module">
+        import { BlizzagaComponent } from "./blizzaga.min.js";
+        customElements.define("blizzaga-component", BlizzagaComponent);
+
+        const blizzagaComponent = document.createElement("blizzaga-component");
+        blizzagaComponent.setAttribute("mode", "long");
+        const blizzagaComponent2 = document.createElement("blizzaga-component");
+        blizzagaComponent2.setAttribute("mode", "short");
+
+        window.parent.document.querySelector("#preexisting-footer").appendChild(
+          blizzagaComponent
+        );
+        document.querySelector("body").appendChild(blizzagaComponent2);
+      </script>'
+      frameborder="0">
+    </iframe> -->
+    <script type="module">
+      import { BlizzagaComponent } from "./index.js";
+      window.customElements.define("blizzaga-component", BlizzagaComponent);
+
+      const blizzagaComponent = document.createElement("blizzaga-component");
+      blizzagaComponent.setAttribute("mode", "long");
+
+      document.querySelector("#preexisting-footer").replaceWith(
+        blizzagaComponent
+      );
     </script>
   </body>
 </html>

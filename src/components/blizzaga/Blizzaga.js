@@ -23,7 +23,7 @@ export class BlizzagaComponent extends LitElement {
     // attach shadowRoot
     const shadowRoot = this.attachShadow({ mode: 'open' });
     const templateAlt = document.createElement('template');
-    templateAlt.innerHTML = handleTemplate(false);
+    templateAlt.innerHTML = handleTemplate(false); // default to short
     shadowRoot.appendChild(templateAlt.content.cloneNode(true));
   }
 

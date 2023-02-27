@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "rm -r build/ && rollup -c --environment BUILD:production",
+    "build": "rollup -c --environment BUILD:production",
     "build:dev": "rollup -c --environment BUILD:development",
     "serve:prod": "npm run build && vite build/",
     "analyze": "cem analyze --litelement",
