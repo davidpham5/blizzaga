@@ -20,30 +20,30 @@ export class BlizzagaComponent extends LitElement {
 
   constructor() {
     super();
-    // attach shadowRoot
+    this.template = document.createElement('template');
+    this.template.innerHTML = handleTemplate('standard'); // standard footer as default template
+
     const shadowRoot = this.attachShadow({ mode: 'open' });
-    const templateAlt = document.createElement('template');
-    templateAlt.innerHTML = handleTemplate(false); // default to short
-    shadowRoot.appendChild(templateAlt.content.cloneNode(true));
+    shadowRoot.appendChild(this.template.content.cloneNode(true));
   }
 
   connectedCallback() {
     super.connectedCallback();
     console.log(this.mode);
-    const templateAlt = document.createElement('template');
-    templateAlt.innerHTML = handleTemplate(this.mode === 'long');
-    if (this.mode === 'long') {
-      this.shadowRoot.appendChild(templateAlt.content.cloneNode(true));
-      this.shadowRoot.querySelector('#ccpa-footer').remove(); // remove footer from constructor()
-    } else {
-      this.shadowRoot.querySelector('#ccpa-footer').remove(); // remove footer from constructor()
-      this.shadowRoot.appendChild(templateAlt.content.cloneNode(true));
+    const standardTemplate = document.createElement('template');
+
+    if (this.mode === 'ccpa') {
+      this.template.innerHTML = handleTemplate('ccpa');
+      const template = this.shadowRoot.appendChild(
+        this.template.content.cloneNode(true)
+      );
+      standardTemplate.replaceWith(template);
     }
   }
 
   firstUpdated() {
-    this.standardFooter = this.renderRoot.querySelector('#standard-footer');
-    console.log(this.standardFooter);
+    // this.standardFooter = this.renderRoot.querySelector('#standard-footer');
+    // console.log(this.standardFooter);
   }
 
   render() {

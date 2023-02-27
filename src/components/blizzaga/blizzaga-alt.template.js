@@ -1,23 +1,24 @@
-export const handleTemplate = isCcpaEnabled => {
+/**
+ * @fileoverview This file contains the "short footer design" template for the footer.
+ * @type {string} type - The type of footer to be rendered, either 'standard' or 'ccpa'.
+ */
+
+export const handleTemplate = type => {
+  const ccpaBlizzaga = type === 'ccpa';
+
   const template = `
-    <footer id="ccpa-footer" class="background-white w-100 font-xxxxs font-xxxs-ns">
+    <footer id="${
+      ccpaBlizzaga ? 'ccpa-blizzaga' : 'standard-blizzaga'
+    }" class="background-white w-100 font-xxxxs font-xxxs-ns">
       <ul class="${
-        !isCcpaEnabled ? 'm-100 pt-xs pb-xs ' : ''
+        !ccpaBlizzaga ? 'm-100 pt-xs pb-xs ' : ''
       } mw-1200 flex center justify-between h-100 pt-xs pb-xs list-unstyled ma-auto pa-0 flex-column flex-ns-row gray-dark">
         <li class="${
-          !isCcpaEnabled ? 'flex justify-center' : ''
+          !ccpaBlizzaga ? 'flex justify-center' : ''
         } flex-1 order-1-ns order-2 flex-start">
           <a class="dib-ns db gray-dark pa-xxs pl-md pr-md" target="_blank" href="https://www.washingtonpost.com/privacy-policy/2011/11/18/gIQASIiaiN_story.html?utm_term=.98a6edd372fc" rel="noopener noreferrer">
             Privacy Policy
           </a>
-          ${
-            isCcpaEnabled
-              ? `<a class="dib-ns db gray-dark pa-xxs pl-md pr-md" href="https://helpcenter.washingtonpost.com/hc/en-us">
-              Need Help?
-            </a>
-            `
-              : ''
-          }
         </li>
         <li class="flex-1 justify-center order-2-ns order-1">
           <div class="flex justify-center pt-xxs pb-xxs">
@@ -28,26 +29,36 @@ export const handleTemplate = isCcpaEnabled => {
           </div>
         </li>
         ${
-          isCcpaEnabled
-            ? `<li class="flex-1 order-3">
-              <a class="dib-ns db gray-dark pa-xxs pl-md pr-md" target="_blank" href="https://www.washingtonpost.com/privacy-policy/2011/11/18/gIQASIiaiN_story.html#CALIFORNIA?tid=ft_ccpa_notice" rel="noopener noreferrer">
-                CA Notice of Collection
-              </a>
-              <a class="dib-ns db gray-dark pa-xxs" target="_blank" href="https://www.washingtonpost.com/my-post/privacy-settings?tid=ft_sell_info" rel="noopener noreferrer">
-                  Do Not Sell My Info
-                </a>
-              </li>
-            `
-            : `
-              <li class="flex justify-center flex-1 order-3">
+          ccpaBlizzaga
+            ? `
+              <li class="flex-1 order-3">
                 <a class="dib-ns db gray-dark pa-xxs pl-md pr-md" href="https://helpcenter.washingtonpost.com/hc/en-us">
                   Need Help?
                 </a>
               </li>
-            `
+              <li class="flex-1 order-3">
+                <a class="dib-ns db gray-dark pa-xxs pl-md pr-md" target="_blank" href="https://www.washingtonpost.com/privacy-policy/2011/11/18/gIQASIiaiN_story.html#CALIFORNIA?tid=ft_ccpa_notice" rel="noopener noreferrer" data-cy="CA-notice-of-collection">
+                  CA Notice of Collection
+                </a>
+              </li>
+              <li id="privacy-choices" class="flex-1 order-3 dn">
+                <a class="dib-ns db gray-dark pa-xxs flex justify-center items-self-start" target="_blank" href="https://www.washingtonpost.com/my-post/privacy-settings?tid=ft_sell_info" rel="noopener noreferrer">
+                  Your Privacy Choices
+                  <img src="https://subscribe.washingtonpost.com/static/dns-icons/privacyoptions29x14.png" alt="California Consumer Privacy Act (CCPA) Opt-Out Icon">
+                </a>
+              </li>
+              `
+            : `<li class="flex justify-center flex-1 order-3">
+                  <a class="dib-ns db gray-dark pa-xxs pl-md pr-md" href="https://helpcenter.washingtonpost.com/hc/en-us">
+                    Need Help?
+                  </a>
+              </li>`
         }
       </ul>
   </footer>
   `;
   return template;
 };
+// const doNotSell = `<a class="dib-ns db gray-dark pa-xxs" target="_blank" data-cy='do-not-sell' href="https://www.washingtonpost.com/my-post/privacy-settings?tid=ft_sell_info" rel="noopener noreferrer">
+// Do Not Sell My Info
+// </a>`;
